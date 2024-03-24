@@ -1,25 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import Hello, { World, World2 } from './module';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import Nav from './components/layout/Nav';
+import Article from './views/Article';
 
 function App() {
+  const listArr = [
+    { title: "Home", des: "홈 화면" },
+    { title: "About", des: "소개 페이지" }
+  ]
+
   return (
-    <div className="App">
-      <h1>리액트 시작해봅시다.</h1>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-    </div>
+    <>
+      <Header />
+      <Nav />
+      {listArr.map((item, index) => (
+        //  item == {title:"Home", des:"홈 화면"}
+        <Article key={index} title={item.title} des={item.des} />
+      ))}
+      {/* <Article title="Home" des="홈 화면" />
+      <Article title="About" des="소개 페이지" /> */}
+      <Footer />
+    </>
   );
 }
 
