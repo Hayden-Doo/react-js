@@ -1,30 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
-import Hello, { World, World2 } from './module';
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import Nav from './components/layout/Nav';
-import Article from './views/Article';
+import { useState } from 'react'
+import './App.css'
+import Footer from './components/layout/Footer'
+import Header from './components/layout/Header'
+import Home from './components/views/home/Home'
 
-function App() {
-  const listArr = [
-    { title: "Home", des: "홈 화면" },
-    { title: "About", des: "소개 페이지" }
-  ]
-
-  return (
-    <>
-      <Header />
-      <Nav />
-      {listArr.map((item, index) => (
-        //  item == {title:"Home", des:"홈 화면"}
-        <Article key={index} title={item.title} des={item.des} />
-      ))}
-      {/* <Article title="Home" des="홈 화면" />
-      <Article title="About" des="소개 페이지" /> */}
-      <Footer />
-    </>
-  );
+const pages = [
+  { id: 1, title: 'home', desc: 'Home Page' },
+  { id: 2, title: 'about', desc: 'about Page' },
+  { id: 3, title: 'signin', desc: 'signin Page' },
+]
+const navArr = [
+  { id: 1, title: 'home' },
+  { id: 2, title: 'about' },
+  { id: 3, title: 'signin' },
+]
+const changeNav = () => {
+  // setContext()
+  alert('!!!!')
 }
 
-export default App;
+function App() {
+  const [context, setContext] = useState({
+    id: 1,
+    title: 'home!!!',
+    desc: 'Home Page!!!',
+  })
+
+  return (
+    <div className="wrap ">
+      <Header title="dashboard" nav={navArr} />
+      {/* <Home title={context.title} desc={context.desc} onClick={changeNav} /> */}
+      {/* 
+      <Home title="home" desc="Home Page" />
+      <Home title="about" desc="about Page" />
+      <Home title="signin" desc="signin Page" /> 
+      */}
+      {pages.map((page) => (
+        <Home key={page.id} title={page.title} desc={page.desc} />
+      ))}
+      <Footer />
+    </div>
+  )
+}
+
+export default App

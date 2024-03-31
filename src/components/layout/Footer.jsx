@@ -1,9 +1,11 @@
+import React from 'react'
+
 const Footer = () => {
-    return(
-        <footer>
-            <h1>Footer</h1>
-        </footer>
-    )
+  return (
+    <footer>
+      <p>&copy; 2024</p>
+    </footer>
+  )
 }
 
-export default Footer;
+export default Footer
