@@ -3,6 +3,7 @@ import './App.css'
 import Footer from './components/layout/Footer'
 import Header from './components/layout/Header'
 import Home from './components/views/home/Home'
+import Event from './grammar/Event'
 
 const pages = [
   { id: 1, title: 'home', desc: 'Home Page' },
@@ -14,20 +15,23 @@ const navArr = [
   { id: 2, title: 'about' },
   { id: 3, title: 'signin' },
 ]
-const changeNav = () => {
-  // setContext()
-  alert('!!!!')
-}
+// const changeNav = () => {
+//   // setContext()
+//   alert('!!!!')
+// }
 
 function App() {
-  const [context, setContext] = useState({
-    id: 1,
-    title: 'home!!!',
-    desc: 'Home Page!!!',
-  })
+  // const [context, setContext] = useState({
+  //   id: 1,
+  //   title: 'home!!!',
+  //   desc: 'Home Page!!!',
+  // })
 
   return (
     <div className="wrap ">
+      <Event />
+      <br />
+      <br />
       <Header title="dashboard" nav={navArr} />
       {/* <Home title={context.title} desc={context.desc} onClick={changeNav} /> */}
       {/* 
