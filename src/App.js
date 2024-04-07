@@ -4,6 +4,7 @@ import Footer from './components/layout/Footer'
 import Header from './components/layout/Header'
 import Home from './components/views/home/Home'
 import Event from './grammar/Event'
+import State from './grammar/State'
 
 const pages = [
   { id: 1, title: 'home', desc: 'Home Page' },
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <div className="wrap ">
+      <State />
       <Event />
       <br />
       <br />
@@ -39,9 +41,11 @@ function App() {
       <Home title="about" desc="about Page" />
       <Home title="signin" desc="signin Page" /> 
       */}
+
       {pages.map((page) => (
         <Home key={page.id} title={page.title} desc={page.desc} />
       ))}
+
       <Footer />
     </div>
   )
