@@ -5,6 +5,7 @@ import Header from './components/layout/Header'
 import Home from './components/views/home/Home'
 import Event from './grammar/Event'
 import State from './grammar/State'
+import News from './components/views/news/News'
 
 const pages = [
   { id: 1, title: 'home', desc: 'Home Page' },
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <div className="wrap ">
+      <News />
       <State />
       <Event />
       <br />
