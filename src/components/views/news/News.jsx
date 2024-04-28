@@ -3,6 +3,21 @@ import React, { useEffect, useState } from 'react'
 
 function News() {
   const [news, setNews] = useState([])
+  const [category, setCategory] = useState('all')
+
+  const categoryList = [
+    { name: '전체', value: 'all' },
+    { name: '비즈니스', value: 'business' },
+    { name: '엔터테인먼트', value: 'entertainment' },
+    { name: '건강', value: 'health' },
+    { name: '과학', value: 'science' },
+    { name: '스포츠', value: 'sports' },
+    { name: '기술', value: 'technology' },
+  ]
+
+  const selectCategory = (category) => {
+    setCategory(category)
+  }
 
   useEffect(() => {
     //Fetch API로 데이터 가져오기
@@ -33,12 +48,19 @@ function News() {
 
     //axios로 데이터 가져오기
     const fetchData = async () => {
+      let response
       try {
-        const response = await axios.get(
-          `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`,
-        )
+        if (category === 'all') {
+          response = await axios.get(
+            `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`,
+          )
+        } else {
+          response = await axios.get(
+            `https://newsapi.org/v2/top-headlines?country=kr&category=${category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`,
+          )
+        }
         // data 속성에 뉴스 데이터가 들어있음
-        console.log(response.data)
+        // console.log(response.data)
         setNews(response.data.articles)
       } catch (error) {
         console.error(error)
@@ -46,11 +68,23 @@ function News() {
     }
 
     fetchData()
-  }, [])
+  }, [category])
 
   return (
     <div>
       <h1>뉴스</h1>
+      <div>
+        {categoryList.map((item, index) => (
+          <button
+            key={index}
+            onClick={() => {
+              selectCategory(item.value)
+            }}
+          >
+            {item.name}
+          </button>
+        ))}
+      </div>
       <ul>
         {news.map((article, index) => (
           <li key={index}>

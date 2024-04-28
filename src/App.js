@@ -6,6 +6,8 @@ import Home from './components/views/home/Home'
 import Event from './grammar/Event'
 import State from './grammar/State'
 import News from './components/views/news/News'
+import UseEffect from './grammar/UseEffect'
+import UseReducer from './grammar/UseReducer'
 
 const pages = [
   { id: 1, title: 'home', desc: 'Home Page' },
@@ -31,12 +33,14 @@ function App() {
 
   return (
     <div className="wrap ">
-      <News />
-      <State />
-      <Event />
+      <UseReducer />
+      {/* <UseEffect /> */}
+      {/* <News /> */}
+      {/* <State /> */}
+      {/* <Event /> */}
       <br />
       <br />
-      <Header title="dashboard" nav={navArr} />
+      {/* <Header title="dashboard" nav={navArr} /> */}
       {/* <Home title={context.title} desc={context.desc} onClick={changeNav} /> */}
       {/* 
       <Home title="home" desc="Home Page" />
@@ -44,11 +48,11 @@ function App() {
       <Home title="signin" desc="signin Page" /> 
       */}
 
-      {pages.map((page) => (
+      {/* {pages.map((page) => (
         <Home key={page.id} title={page.title} desc={page.desc} />
-      ))}
+      ))} */}
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
