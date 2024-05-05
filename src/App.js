@@ -8,6 +8,8 @@ import State from './grammar/State'
 import News from './components/views/news/News'
 import UseEffect from './grammar/UseEffect'
 import UseReducer from './grammar/UseReducer'
+import Context from './grammar/Context'
+import ContextOrder from './grammar/ContextOrder'
 
 const pages = [
   { id: 1, title: 'home', desc: 'Home Page' },
@@ -33,7 +35,9 @@ function App() {
 
   return (
     <div className="wrap ">
-      <UseReducer />
+      <ContextOrder />
+      {/* <Context /> */}
+      {/* <UseReducer /> */}
       {/* <UseEffect /> */}
       {/* <News /> */}
       {/* <State /> */}
